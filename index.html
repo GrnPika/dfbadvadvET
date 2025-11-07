@@ -3,143 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проверка устройства</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>MAGENTA COMPANY</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Добавьте свою ссылку на фон */
+            background: url('ВАША_ССЫЛКА_НА_ФОН') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            color: white;
         }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            max-width: 400px;
+
+        header {
+            /* Добавьте свою ссылку на фон шапки */
+            background: url('ВАША_ССЫЛКА_НА_ФОН_ШАПКИ') no-repeat center center;
+            background-size: cover;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .menu-btn {
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0,0,0,0.8);
+            min-width: 160px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-content button {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background: none;
+            border: none;
             width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dropdown-content button:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .main-content {
             text-align: center;
+            padding: 4rem 2rem;
         }
-        
-        .logo {
-            font-size: 48px;
-            margin-bottom: 20px;
+
+        .gradient-text {
+            background: linear-gradient(45deg, #8B00FF, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
         }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 24px;
+
+        .assortment {
+            margin: 2rem 0;
         }
-        
-        .status {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #007bff;
-        }
-        
-        .status.success {
-            border-left-color: #28a745;
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        button {
-            background: #007bff;
+
+        .category-btn {
+            background: rgba(139, 0, 255, 0.7);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 16px;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 25px;
             cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-            margin: 10px 0;
+            transition: all 0.3s;
+            font-size: 1.1rem;
         }
-        
-        button:hover {
-            background: #0056b3;
+
+        .category-btn:hover {
+            background: rgba(139, 0, 255, 0.9);
+            transform: scale(1.05);
         }
-        
-        button:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
+
+        .items-list {
+            display: none;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(0,0,0,0.7);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        .channel-link {
+            color: #BA55D3;
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .channel-link:hover {
+            background: rgba(255,255,255,0.2);
+            color: #DA70D6;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🔒</div>
-        <h1>Проверка устройства</h1>
-        
-        <div id="status" class="status">
-            Готово к привязке устройства
+    <header>
+        <div class="dropdown">
+            <button class="menu-btn">☰</button>
+            <div class="dropdown-content" id="mainDropdown">
+                <button onclick="toggleContact()">Связь</button>
+                <div id="contactSubmenu" style="display: none;">
+                    <button onclick="location.href='mailto:genpika1111@gmail.com'">Почта</button>
+                    <button onclick="location.href='https://t.me/MAGENTAGRAD'">Телеграм</button>
+                </div>
+            </div>
         </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="gradient-text">MAGENTA COMPANY</h1>
         
-        <button id="bindButton" onclick="processDeviceBinding()">
-            🔒 Привязать устройство
-        </button>
-    </div>
+        <section class="assortment">
+            <h2>Ассортимент</h2>
+            <div class="categories">
+                <button class="category-btn" onclick="toggleList('telegramChannels')">Телеграм каналы</button>
+                <button class="category-btn" onclick="toggleList('telegramBots')">Телеграм боты</button>
+                <button class="category-btn" onclick="toggleList('tiktok')">Тик Ток</button>
+            </div>
+        </section>
+
+        <!-- Списки элементов -->
+        <div id="telegramChannels" class="items-list">
+            <!-- Добавьте свои ссылки на телеграм каналы -->
+            <a href="#" class="channel-link">Название канала 1</a>
+            <a href="#" class="channel-link">Название канала 2</a>
+            <a href="#" class="channel-link">Название канала 3</a>
+        </div>
+
+        <div id="telegramBots" class="items-list">
+            <!-- Добавьте свои ссылки на телеграм боты -->
+            <a href="#" class="channel-link">Название бота 1</a>
+            <a href="#" class="channel-link">Название бота 2</a>
+            <a href="#" class="channel-link">Название бота 3</a>
+        </div>
+
+        <div id="tiktok" class="items-list">
+            <!-- Добавьте свои ссылки на тикток -->
+            <a href="#" class="channel-link">Тикток аккаунт 1</a>
+            <a href="#" class="channel-link">Тикток аккаунт 2</a>
+            <a href="#" class="channel-link">Тикток аккаунт 3</a>
+        </div>
+    </main>
 
     <script>
-        // Основная функция привязки устройства
-        function processDeviceBinding() {
-            const button = document.getElementById('bindButton');
-            const status = document.getElementById('status');
-            
-            button.disabled = true;
-            button.textContent = '📡 Привязка устройства...';
-            status.textContent = 'Выполняется привязка устройства к аккаунту...';
-            
-            // Генерируем простой fingerprint
-            const fingerprint = 'device_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-            const userAgent = navigator.userAgent;
-            
-            // Собираем данные для отправки
-            const data = {
-                fingerprint: fingerprint,
-                user_agent: userAgent,
-                ip_address: 'unknown',
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('Sending data to bot:', data);
-            
-            // Отправляем данные в бота через Telegram WebApp
-            if (window.Telegram && Telegram.WebApp) {
-                Telegram.WebApp.sendData(JSON.stringify(data));
-                
-                status.textContent = '✅ Данные отправлены! Закройте это окно.';
-                status.className = 'status success';
-                button.textContent = '✅ Готово';
-                
-            } else {
-                status.textContent = '❌ Ошибка: Telegram WebApp не доступен';
-                button.textContent = '🔄 Попробовать снова';
-                button.disabled = false;
-            }
-        }
-        
-        // Инициализация при загрузке
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.Telegram && Telegram.WebApp) {
-                Telegram.WebApp.ready();
-                Telegram.WebApp.expand();
-            }
+        // Работа меню
+        const menuBtn = document.querySelector('.menu-btn');
+        const mainDropdown = document.getElementById('mainDropdown');
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mainDropdown.style.display = mainDropdown.style.display === 'block' ? 'none' : 'block';
         });
+
+        function toggleContact() {
+            const submenu = document.getElementById('contactSubmenu');
+            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', function() {
+            mainDropdown.style.display = 'none';
+            document.getElementById('contactSubmenu').style.display = 'none';
+        });
+
+        // Работа списков
+        function toggleList(listId) {
+            const allLists = document.querySelectorAll('.items-list');
+            const targetList = document.getElementById(listId);
+            
+            allLists.forEach(list => {
+                if (list !== targetList) {
+                    list.style.display = 'none';
+                }
+            });
+            
+            targetList.style.display = targetList.style.display === 'block' ? 'none' : 'block';
+        }
     </script>
 </body>
 </html>
