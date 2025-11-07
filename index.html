@@ -296,12 +296,12 @@
                         status.className = 'status warning';
                     }, 2000);
                     
-                    // Закрываем WebApp через 4 секунды
+                    // Закрываем WebApp через 3 секунды
                     setTimeout(() => {
                         if (Telegram.WebApp.close) {
                             Telegram.WebApp.close();
                         }
-                    }, 4000);
+                    }, 3000);
                     
                 } else {
                     throw new Error('Telegram WebApp not available');
